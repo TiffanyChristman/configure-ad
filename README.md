@@ -27,25 +27,47 @@ This tutorial outlines the implementation of on-premises Active Directory within
 <h2>Deployment and Configuration Steps</h2>
 
 <p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+  
+![Screenshot 2024-03-07 184322](https://github.com/TiffanyChristman/configure-ad/assets/161388738/90b4fdcf-d5a3-43dd-8210-8836656e10fe)
+
 </p>
 <p>
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+Login to DC-1 and install Active Directory Domain Services, Promote as a DC: Setup a new forest as mydomain.com (can be anything, just remember what it is)
+Restart and then log back into DC-1 as user: mydomain.com\labuser
 </p>
 <br />
 
 <p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+  
+![Screenshot 2024-03-08 134358](https://github.com/TiffanyChristman/configure-ad/assets/161388738/14acd138-35b2-436e-92e8-29e97cf0a6dc)
 </p>
 <p>
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+In Active Directory Users and Computers (ADUC), create an Organizational Unit (OU) called “_EMPLOYEES”
+Create a new OU named “_ADMINS”, Create a new employee named “Jane Doe” (same password) with the username of “jane_admin”
+Add jane_admin to the “Domain Admins” Security Group
+
 </p>
 <br />
 
 <p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+  
+![Screenshot 2024-03-08 134802](https://github.com/TiffanyChristman/configure-ad/assets/161388738/78bb4dab-600c-4e6a-b70b-b74d1345309a)
+
 </p>
 <p>
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+From the Azure Portal, set Client-1’s DNS settings to the DC’s Private IP address, from the Azure Portal, restart Client-1
+Login to Client-1 (Remote Desktop) as the original local admin (labuser) and join it to the domain (computer will restart),login to the Domain Controller (Remote Desktop) and verify Client-1 shows up in Active Directory Users and Computers (ADUC) inside the “Computers” container on the root of the domain
+
+</p>
+<br />
+
+<p>
+  
+![Screenshot 2024-03-08 135405](https://github.com/TiffanyChristman/configure-ad/assets/161388738/f164a2c7-72cd-4848-a88b-79b9451ed119)
+</p>
+<p>
+Log into Client-1 as mydomain.com\jane_admin and open system properties, click “Remote Desktop”
+Allow “domain users” access to remote desktop, you can now log into Client-1 as a normal, non-administrative user now
+
 </p>
 <br />
