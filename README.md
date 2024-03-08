@@ -71,3 +71,32 @@ Allow “domain users” access to remote desktop, you can now log into Client-1
 
 </p>
 <br />
+
+<p>
+  
+![Screenshot 2024-03-08 135923](https://github.com/TiffanyChristman/configure-ad/assets/161388738/471bac87-dd57-4075-bb7e-5680e34ab84c)
+
+
+</p>
+<p>
+Create a bunch of additional users and attempt to log into client-1 with one of the users, login to DC-1 as jane_admin
+Open PowerShell_ise as an administrator, create a new File and paste the contents of the script into it
+</p>
+<br />
+
+<p>
+  
+![Screenshot 2024-03-08 142433](https://github.com/TiffanyChristman/configure-ad/assets/161388738/805b4907-5083-463f-9136-f253e743e95b)
+
+</p>
+<p>
+When finished, open ADUC and observe the accounts in the appropriate OU,attempt to log into Client-1 with one of the accounts (take note of the password in the script)
+
+
+</p>
+<br />
+
+<p>
+  
+
+
